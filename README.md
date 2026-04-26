@@ -70,7 +70,7 @@ The script in [script.js](script.js) includes:
 
 ## How to Run
 1. Open the deployed project through GitHub Pages:
-    - https://your-username.github.io/your-repository-name/
+    - [CLICK HERE!](https://vibe-with-wyn.github.io/IT322/)
 2. Observe:
 - Personal information display
 - Rotating personalized message
