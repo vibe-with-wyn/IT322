@@ -1,0 +1,259 @@
+:root {
+  --bg-1: #f6efe3;
+  --bg-2: #e6f0ea;
+  --ink: #1f2a2e;
+  --ink-soft: #4b5a60;
+  --brand: #0f766e;
+  --brand-2: #14532d;
+  --panel: rgba(255, 255, 255, 0.78);
+  --line: rgba(31, 42, 46, 0.12);
+  --shadow: 0 16px 42px rgba(0, 0, 0, 0.14);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(15, 118, 110, 0.16) 0%,
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 90% 12%,
+      rgba(20, 83, 45, 0.12) 0%,
+      transparent 34%
+    ),
+    linear-gradient(130deg, var(--bg-1), var(--bg-2));
+  display: grid;
+  place-items: center;
+  padding: 22px;
+}
+
+.card {
+  width: min(760px, 100%);
+  backdrop-filter: blur(12px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: cardEnter 800ms ease;
+}
+
+.banner {
+  padding: 22px 22px 14px;
+  background: linear-gradient(
+    95deg,
+    rgba(15, 118, 110, 0.94),
+    rgba(20, 83, 45, 0.9)
+  );
+  color: #f7fffc;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 999px;
+  padding: 6px 11px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+h1 {
+  font-family: "Source Serif 4", serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.content {
+  padding: 18px 22px 22px;
+  display: grid;
+  gap: 14px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  transform: translateY(6px);
+  opacity: 0;
+  animation: rowReveal 450ms ease forwards;
+}
+
+.row:nth-child(1) {
+  animation-delay: 120ms;
+}
+.row:nth-child(2) {
+  animation-delay: 200ms;
+}
+.row:nth-child(3) {
+  animation-delay: 280ms;
+}
+
+.label {
+  color: var(--ink-soft);
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+}
+
+.value {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.message-box {
+  margin-top: 4px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--brand);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 118, 110, 0.08),
+    rgba(255, 255, 255, 0.8)
+  );
+}
+
+.message-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand-2);
+  margin-bottom: 6px;
+}
+
+#customMessage {
+  font-size: 1.04rem;
+  font-weight: 700;
+  min-height: 1.5em;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  margin-top: 2px;
+}
+
+#dateTime {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #f8fffb;
+  background: linear-gradient(95deg, var(--brand), var(--brand-2));
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    filter 180ms ease;
+}
+
+.btn:hover {
+  filter: brightness(1.07);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.toast {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  padding: 10px 12px;
+  font-weight: 700;
+  font-size: 0.86rem;
+  border-radius: 10px;
+  background: rgba(31, 42, 46, 0.92);
+  color: #f4f8f7;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes rowReveal {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .label {
+    font-size: 0.78rem;
+  }
+
+  .value {
+    font-size: 1rem;
+  }
+
+  .meta {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

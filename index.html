@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hands-On Activity - JavaScript</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Source+Serif+4:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="card" aria-label="Student activity card">
+      <header class="banner">
+        <span class="tag">Hands-On Activity</span>
+        <h1>Student Information Showcase</h1>
+        <p class="subtitle" id="greetingLine">Loading greeting...</p>
+      </header>
+
+      <section class="content">
+        <article class="row">
+          <p class="label">Full Name</p>
+          <p class="value" id="fullName"></p>
+        </article>
+
+        <article class="row">
+          <p class="label">Course</p>
+          <p class="value" id="course"></p>
+        </article>
+
+        <article class="row">
+          <p class="label">Year and Section</p>
+          <p class="value" id="yearSection"></p>
+        </article>
+
+        <article class="message-box">
+          <p class="message-title">Custom Message</p>
+          <p id="customMessage"></p>
+        </article>
+
+        <div class="meta">
+          <p id="dateTime">Current Date and Time:</p>
+          <button class="btn" id="copyBtn" type="button">Copy Summary</button>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
